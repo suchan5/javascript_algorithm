@@ -9,9 +9,11 @@ const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 const input = fs.readFileSync(filePath).toString().split(' ').map(item => +item);
 
 function solution() {
-    
+    let answer;
+
+    return answer;
 };
-solution();
+console.log(solution());
 ```
 <br />
 <br />
