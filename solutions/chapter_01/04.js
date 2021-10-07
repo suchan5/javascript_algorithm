@@ -7,7 +7,7 @@ input = +input;
 console.log(input);
 
 function solution(N) {
-    let answer = 0; // let answer;이렇게 하니까 NaN라고 뜬다. 숫자 계산할 때는 let answer = 0;이런식으로 꼭 숫자로 선언해줘야함 
+    let answer = 0; // let answer;평소처럼 이렇게 하니까 NaN라고 뜬다. answer에다가 누적을 할거니까 let answer = 0;이런식으로 제일 처음 값은 꼭 숫자로 선언해줘야하나봐
     for (let i=1; i <= N; i++) { 
         answer += i;
     }
