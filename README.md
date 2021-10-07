@@ -1,5 +1,8 @@
 # 자바스크립트로 푸는 알고리듬
-## fs모듈로 입력 받는 방식
+<br />
+<br />
+
+### fs모듈로 입력 받는 방식
 ```javascript
 const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
@@ -12,9 +15,8 @@ solution();
 ```
 <br />
 <br />
-<br />
 
-## readline으로 입력 받는 방식
+### readline으로 입력 받는 방식
 ```javascript
 const readline = require("readline");
 const rl = readline.createInterface({
