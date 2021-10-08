@@ -1,7 +1,5 @@
 // 1부터 N까지 합 출력하기
 
-'use strict';
-
 const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 let input = fs.readFileSync(filePath).toString();
