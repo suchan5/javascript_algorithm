@@ -17,3 +17,15 @@ function solution(arr) {
     return min;
 };
 console.log(solution(input));
+
+
+
+
+
+
+// Math.min()을 사용하면 더 간단하게 할 수 있다
+function solution2(arr) {
+    let min = Math.min(...arr);
+    return min
+}
+console.log(solution2(input));

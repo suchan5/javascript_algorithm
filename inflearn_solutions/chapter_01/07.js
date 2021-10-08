@@ -30,7 +30,7 @@ console.log(solution(0, input));
 
 const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-const input = fs.readFileSync(filePath).toString().split(' ').map(item => +item); // 여기서는 숫자로 평소처럼 바꿔주자. 문자열을 slice로 하는 것보다, 숫자로 했을 때 더 간단하게 하는 방법이 있다
+const input = fs.readFileSync(filePath).toString().split(' ').map(item => +item); // 여기서는 배열 안의 데이터들을 숫자로 평소처럼 바꿔주자. 문자열을 slice로 하는 것보다, 숫자로 했을 때 더 간단하게 하는 방법이 있다
 console.log(input);
 
 function solution2(date, arr){
