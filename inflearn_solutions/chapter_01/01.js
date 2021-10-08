@@ -1,5 +1,7 @@
 // 세 수 중 최솟값 구하기
 
+'use strict';
+
 const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 const input = fs.readFileSync(filePath).toString().split(' ').map(item => +item);
