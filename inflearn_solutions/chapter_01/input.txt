@@ -1,5 +1,1 @@
-teacher
-time
-student
-beautiful
-good
+study
