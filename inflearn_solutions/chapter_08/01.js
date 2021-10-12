@@ -1,7 +1,7 @@
 // 재귀함수 (DFS with recursion) : 자연수 N이 입력되면 재귀함수를 이용하여 1부터 N까지를 출력하는 프로그램을 작성하세요
 // 재귀함수는 스택을 사용 (LIFO)
 
-function solution (n) {
+function solution (N) {
     function DFS(L) { 
         if (L===0) { // 이게 무한으로 도니까 멈추기는 해야하잖아. DFS(0)이 되면 재귀 함수를 종료.
             return;
@@ -12,7 +12,7 @@ function solution (n) {
         }
     }
 
-    DFS(n);
+    DFS(N);
 }
 
 solution(3);
