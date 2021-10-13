@@ -12,7 +12,7 @@ function solution (N) {
             answer += (N%2); // toString()이렇게 안해도 let answer=''; 이렇게 빈 문자열을 만들어줬으므로 string으로 누적된다
         }  
     }
-    dfsR(N);
+    dfsR(11);
     return answer;
 }
 console.log(solution(11));

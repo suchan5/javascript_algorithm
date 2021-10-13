@@ -3,17 +3,17 @@
 // Binary Tree (DFS with Recursion)으로 코드짜서 구할 수 있다. 두 갈래로 뻗는거다. 호출된 수를 포함하거나 안하거나.
 
 function solution(N) {
-    let answer=[];
+    let answer = [];
     let check = Array.from({length : N+1}, () => 0);
     function dfsR(v) {
         if (v === N+1) { // 4면 종료 
             let tmp='';
             for (let i=1; i<=N; i++) {
                 if (check[i] === 1) {
-                    tmp+=i+' ';
+                    tmp += i + ' ';
                 }
             }
-            if (tmp.length > 0) {
+            if (tmp.length > 0) { // 공집합은 문제에서 원하지 않았으므로 이렇게해준다
                 answer.push(tmp.trim());
             }
         } else {

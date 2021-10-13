@@ -12,7 +12,7 @@ function solution (N) {
         }
     }
     
-    dfsR(N);
+    dfsR(3);
 }
 
 solution(3);
