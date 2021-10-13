@@ -1,5 +1,6 @@
-//  보충수업
+// 보충 자료 
 // Binary Tree : DFS wirh Recursion (Stack)
+// 코드로 표현하면 아래와 같다 (기본 템플릿처럼 가져다가 사용하면 된다)
 
 function solution (v) {
     let answer;
