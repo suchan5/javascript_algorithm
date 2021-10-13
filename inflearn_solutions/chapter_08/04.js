@@ -1,38 +1,35 @@
-// function solution () {
-//     function dfsR() {
-//         if () {
+// 부분집합 구하기 (DFS) : 자연수 N이 주어지면, 1부터 N까지의 원소를 갖는 집합의 부분집합을 작성하세요
+// 예. {1,2,3} => {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}, {공집합}. 2^3 = 총 8개
+// Binary Tree (DFS with Recursion)으로 코드짜서 구할 수 있다. 두 갈래로 뻗는거다. 호출된 수를 포함하거나 안하거나.
 
-//         } else {
-//             dfsR();
-//             dfsR();
-//         }
-//     }
-//     dfsR();
-// }
-// solution();
-
-
-function solution (arr) {
-    let answer = 'NO';
-    let total = arr.reduce((a, b) => a + b, 0); // 배열 전체의 합
-    let flag = 0;
-    function dfsR(L, sum) { // L은 level인데 여기서는 입력값으로 받은 배열의 index번호다(L이 0이면 =arr[L] = 1, L이 3이면 = arr[3] = 6), sum은 내가 재귀를 돌면서 만든 부분 집합의 합. 
-        if (L===arr.length) { // L이 6개가 되면 멈춘다
-            if ((total-sum) === sum) { // 집합의 모든 원소의 합에서, 재귀 함수로 뻗어나가면서 포함될 때(왼쪽)마다 sum으로 누적해 놓은거를 빼면, 포함이 안된(오른쪽)남은 원소의 합이 나온다. 그 둘의 합이 같으면 출력값이 YES가 되는거임
-                answer = 'YES';
-                flag = 1;
+function solution(N) {
+    let answer = [];
+    let check = Array.from({length:N+1}, ()=>0);
+    function dfsR(L) {
+        if (L === N+1) { // 4면 탐색 트리의 종착점까지 가고 탐색을 종료 
+            let tmp='';
+            for (let i=1; i<=N; i++) {
+                if (check[i] === 1) {
+                    tmp += i + ' ';
+                }
             }
-            if (flag) {
-                return;
+            if (tmp.length > 0) { // 공집합은 문제에서 원하지 않았으므로 이렇게해준다
+                answer.push(tmp.trim());
             }
         } else {
-            dfsR(L+1, sum+arr[L]); // 왼쪽(=포함된다). L은 index다. 왼쪽일 때 하나씩 뻗어나가고(L+1), 그 원소를 sum에 누적한다
-            dfsR(L+1, sum); // 오른쪽 (=포함 안된다). L은 오른쪽일 때도 마찬가지로 하나씩 뻗어나가고(L+1), sum에는 포함시키지 않았으니 누적될 값도 없다
+            check[L] = 1;
+            dfsR(L+1);
+            check[L] = 0;
+            dfsR(L+1);
         }
     }
-    dfsR(0, 0); // 
+    dfsR(1);
     return answer;
 }
-let arr = [1, 3, 5, 6, 7, 10]
-console.log(solution(arr));
+console.log(solution(3)); 
+
+
+
+
+
 

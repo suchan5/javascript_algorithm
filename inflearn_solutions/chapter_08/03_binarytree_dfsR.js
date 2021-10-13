@@ -1,6 +1,6 @@
 // 보충 자료 
-// Binary Tree : DFS wirh Recursion (Stack)
-// 코드로 표현하면 아래와 같다 (기본 템플릿처럼 가져다가 사용하면 된다)
+// Binary Tree : DFS wirh Recursion (Stack) : inorder, preorder, postorder
+// PDF자료 3pg의 그림을 preorder, inoder, postorder의 코드로 표현하면 아래와 같다
 
 function solution (v) {
     let answer;
@@ -15,7 +15,7 @@ function solution (v) {
             //console.log(v); // root를 가장 마지막에 출력 (postorder)
         }
     }
-    dfsR(v);
+    dfsR(1); // 트리 그림을 보면 1번 노드부터 시작한다
     return answer; 
 }
 console.log(solution(1));
