@@ -18,7 +18,7 @@ function solution (arr) {
             dfsR(L+1, sum); // 오른쪽 (=포함 안된다). L은 오른쪽일 때도 마찬가지로 하나씩 뻗어나가고(L+1), sum에는 포함시키지 않았으니 누적될 값도 없다
         }
     }
-    dfsR(0, 0); // 
+    dfsR(0, 0);
     return answer;
 }
 let arr = [1, 3, 5, 6, 7, 10]

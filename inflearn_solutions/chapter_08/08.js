@@ -37,7 +37,7 @@ function solution(arr, m) {
             }
         }
     }
-    dfsR(0); // 근데 왜 1번 노드부터 시작안하고 0번 노드부터 시작하지? 
+    dfsR(0); 
     return answer;
 }
 let arr = [1, 2, 3]
