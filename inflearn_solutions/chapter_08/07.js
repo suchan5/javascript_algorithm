@@ -1,5 +1,5 @@
 // 최대 점수 구하기
-// 이진트리 문제다 : 문제를 풀것인지 말것인지, 모든 경우의 수를 찾는다
+// 이진트리 문제다 : 문제를 풀것인지 말것인지, 모든 경우의 수를 찾는다. 6번 바둑이 문제와 비슷하다
 
 function solution(m, scoreArr, timeArr) {
     let answer = Number.MIN_SAFE_INTEGER; // 문제가 최대값을 구하는 것이므로 일단 제일 작은 수를 할당해준다

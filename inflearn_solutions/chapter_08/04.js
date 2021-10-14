@@ -6,10 +6,10 @@ function solution(N) {
     let answer = [];
     let check = Array.from({length:N+1}, ()=>0);
     function dfsR(L) {
-        if (L === N+1) { // 4면 탐색 트리의 종착점까지 가고 탐색을 종료 
+        if (L === N+1) { // N은 arr.length와 같다. 1번 노드 'D(1)'부터 탐색 시작했으므로 'arr.length +1' 해준거다. 4면 탐색 트리의 종착점까지 가고 탐색을 종료 
             let tmp='';
             for (let i=1; i<=N; i++) {
-                if (check[i] === 1) {
+                if (check[i] === 1) { // check배열을 돌면서 체크된게 있으면, 그 원소를 임시배열에 추가
                     tmp += i + ' ';
                 }
             }
@@ -23,10 +23,13 @@ function solution(N) {
             dfsR(L+1);
         }
     }
-    dfsR(1);
+    dfsR(1); // 1번 노드부터 시작해야한다. 평소처럼 0번부터 해주려고 위의 조건들도 바꿔주다보면 ,[ '0 1 2', '0 1', '0 2', '0', '1 2', '1', '2' ]이런 출력값이 나오므로
     return answer;
 }
 console.log(solution(3)); 
+
+
+
 
 
 
