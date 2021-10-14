@@ -33,4 +33,4 @@ function solution (n,r) {
     }
     return dfsR(n,r);
 }
-console.log(solution(33,19)); // 5. 계산하는데 시간 안걸리고 바로 나와버린다 답이. 오~ 그래서 메모이제이션 쓰는구나!
+console.log(solution(33,19)); // 5. 계산하는데 시간 안걸리고 바로 나와버린다 답이. 오~ 그래서 메모이제이션 쓰는구나! 속도를 확 올려버린다
