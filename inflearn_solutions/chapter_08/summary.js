@@ -1,23 +1,23 @@
 
 
 
-// // 백설공주와 일곱난쟁이
-// function solution(arr) {
-//     let sum = arr.reduce((a,b) => a+b, 0)
-//     for (let i=0; i<9; i++){
-//         for (let j=i+1; j<10; j++) {
-//             if ((sum - 100) === (arr[i]+arr[j])) {
-//                 arr.splice(j, 1);
-//                 arr.splice(i, 1);
-//             }
-//         }
-//     } 
-//     console.log(arr);
+// 백설공주와 일곱난쟁이
+function solution(arr) {
+    let sum = arr.reduce((a,b) => a+b, 0)
+    for (let i=0; i<9; i++){
+        for (let j=i+1; j<10; j++) {
+            if ((sum - 100) === (arr[i]+arr[j])) {
+                arr.splice(j, 1);
+                arr.splice(i, 1);
+            }
+        }
+    } 
+    console.log(arr);
     
     
-// }
-// let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
-// solution(arr);
+}
+let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+solution(arr);
 
 
 
@@ -28,30 +28,28 @@
 
 
 
-// // 바둑이를 태우냐 마느냐 
-// // 1) 무게 제한 (재귀함수 종료 조건), 2) 최대 무게 구하기 (문제가 진정 원하는 것) => 둘 다 무게이므로 재귀로 배열을 탐색해 들어갈 때 무게sum을 누적해준다)
-// function solution (C, arr) {
-//     let answer = Number.MIN_SAFE_INTEGER;
-//     function dfsR(L, sum) {
-//         if (C < sum) {
-//             return;
-//         };
-//         if (L===arr.length) {
-//             answer = Math.max(answer, sum);
-//         } else {
-//             dfsR(L+1, sum+arr[L]);
-//             dfsR(L+1, sum);
-//         };
-//     }
+// 바둑이를 태우냐 마느냐 
+// 1) 무게 제한 (재귀함수 종료 조건), 2) 최대 무게 구하기 (문제가 진정 원하는 것) => 둘 다 무게이므로 재귀로 배열을 탐색해 들어갈 때 무게sum을 누적해준다)
+function solution (C, arr) {
+    let answer = Number.MIN_SAFE_INTEGER;
+    function dfsR(L, sum) {
+        if (C < sum) {
+            return;
+        };
+        if (L===arr.length) {
+            answer = Math.max(answer, sum);
+        } else {
+            dfsR(L+1, sum+arr[L]);
+            dfsR(L+1, sum);
+        };
+    }
 
-//     dfsR(0,0);
-//     return answer;
-// }
+    dfsR(0,0);
+    return answer;
+}
 
-// let arr = [81, 58, 42, 33, 61];
-// console.log(solution(259, arr));
-
-
+let arr = [81, 58, 42, 33, 61];
+console.log(solution(259, arr));
 
 
 
@@ -60,96 +58,98 @@
 
 
 
-// // 문제를 푸느냐 마느냐
-// // 1) 시간 제한이 있고 (재귀함수 종료 조건), 2)최대 점수 구하기 (문제가 진정 원하는 것) => 시간이랑 점수 두가지이므로 재귀로 배열을 탐색할 들어갈 때, 시간sum과 점수sum을 누적해준다)
-// function solution (m, scoreArr, timeArr) {
-//     let answer = Number.MIN_SAFE_INTEGER;
-//     function dfsR (L, scoreSum, timeSum) {
-//         if (m < timeSum) {
-//             return;
-//         };
-//         if (L===scoreArr.length) { // it can be either timeArr.lengh or scoreArr.length, since the length of the two arrays are same.
-//             answer = Math.max(answer, scoreSum);
-//         } else {
-//             dfsR(L+1, scoreSum+scoreArr[L], timeSum+timeArr[L]);
-//             dfsR(L+1, scoreSum, timeSum);
-//         };
-
-//     }
-//     dfsR(0,0,0);
-//     return answer;
-// }
-// let timeArr = [10, 25, 15, 6, 7];
-// let scoreArr =[5, 12, 8, 3, 4];
-// console.log(solution (20, timeArr, scoreArr));
 
 
+// 문제를 푸느냐 마느냐
+// 1) 시간 제한이 있고 (재귀함수 종료 조건), 2)최대 점수 구하기 (문제가 진정 원하는 것) => 시간이랑 점수 두가지이므로 재귀로 배열을 탐색할 들어갈 때, 시간sum과 점수sum을 누적해준다)
+function solution (m, scoreArr, timeArr) {
+    let answer = Number.MIN_SAFE_INTEGER;
+    function dfsR (L, scoreSum, timeSum) {
+        if (m < timeSum) {
+            return;
+        };
+        if (L===scoreArr.length) { // it can be either timeArr.lengh or scoreArr.length, since the length of the two arrays are same.
+            answer = Math.max(answer, scoreSum);
+        } else {
+            dfsR(L+1, scoreSum+scoreArr[L], timeSum+timeArr[L]);
+            dfsR(L+1, scoreSum, timeSum);
+        };
 
-
+    }
+    dfsR(0,0,0);
+    return answer;
+}
+let timeArr = [10, 25, 15, 6, 7];
+let scoreArr =[5, 12, 8, 3, 4];
+console.log(solution (20, timeArr, scoreArr));
 
 
 
 
-// // 부분 집합 구하기 : 자연수 N이 주어지면 1부터 N까지의 원소를 갖는 집합의 부분집합을 모두 출력하는 프로그램 을 작성하세요 : 예. {1,2,3} => {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}, {공집합}. 2^3 = 총 8개
-// // 이것 역시 포함하느냐 안하느냐하는 이진트리 문제 (다른점은 : 1) 시간제한 무게제한 없고 (재귀 함수 종료 조건), 2)최대값 최소값을 조건이 걸린 문제가 아니다 (문제가 진정 원하는 것), 3) 다만 포함됐는지 체크를 걸어줘야한다 (2)번 대신에 이 조건이 문제가 원하는 것))
-// function solution(N) {
-//     let answer = [];
-//     let check = Array.from({length:N+1}, ()=>0); // 체크배열 만들어주고
-//     function dfsR(L) {
-//         if (L===N+1) { // 개념적으로는 (L===arr.length)이랑 같은거다. 다만 여기서는 시작노드가 1이었으므로 +1을 해줘야하는거지
-//             let emptyStr = '';
-//             for (let i=1; i<N+1; i++) { // 체크배열을 돌면서 
-//                 if (check[i]===1) { // 해당 인덱스 자리에 체크가 걸려있으면
-//                     emptyStr += i + ' '; // 빈 문자열을 만들고 거기다가 일단 담아둔다. 바로 answer배열에 추가하지 않음. answer.push(i+' ');이렇게 바로 해보니까 구분없이 다 연결되어서 나온다. 이런식으로[ '1 ', '2 ', '3 ','1 ', '2 ', '1 ', '3 ', '1 ', '2 ','3 ', '2 ', '3 ']
-//                     console.log(emptyStr);
+
+
+
+
+// 부분 집합 구하기 : 자연수 N이 주어지면 1부터 N까지의 원소를 갖는 집합의 부분집합을 모두 출력하는 프로그램 을 작성하세요 : 예. {1,2,3} => {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}, {공집합}. 2^3 = 총 8개
+// 이것 역시 포함하느냐 안하느냐하는 이진트리 문제 (다른점은 : 1) 시간제한 무게제한 없고 (재귀 함수 종료 조건), 2)최대값 최소값을 조건이 걸린 문제가 아니다 (문제가 진정 원하는 것), 3) 다만 포함됐는지 체크를 걸어줘야한다 (2)번 대신에 이 조건이 문제가 원하는 것))
+function solution(N) {
+    let answer = [];
+    let check = Array.from({length:N+1}, ()=>0); // 체크배열 만들어주고
+    function dfsR(L) {
+        if (L===N+1) { // 개념적으로는 (L===arr.length)이랑 같은거다. 다만 여기서는 시작노드가 1이었으므로 +1을 해줘야하는거지
+            let emptyStr = '';
+            for (let i=1; i<N+1; i++) { // 체크배열을 돌면서 
+                if (check[i]===1) { // 해당 인덱스 자리에 체크가 걸려있으면
+                    emptyStr += i + ' '; // 빈 문자열을 만들고 거기다가 일단 담아둔다. 바로 answer배열에 추가하지 않음. answer.push(i+' ');이렇게 바로 해보니까 구분없이 다 연결되어서 나온다. 이런식으로[ '1 ', '2 ', '3 ','1 ', '2 ', '1 ', '3 ', '1 ', '2 ','3 ', '2 ', '3 ']
+                    console.log(emptyStr);
                     
-//                 }
-//             }
-//             if (emptyStr.length > 0) { // 공집합은 문제에서 출력값에 없으므로 이런식으로해서 제거
-//                 answer.push(emptyStr.trim()); // 한번 더 배열로 예쁘게 가공하는 것 뿐이다. 그리고 뒤에 trim()을 붙여주면 빈공간이 없어져서 이쁘게 다듬어진다
-//             }
+                }
+            }
+            if (emptyStr.length > 0) { // 공집합은 문제에서 출력값에 없으므로 이런식으로해서 제거
+                answer.push(emptyStr.trim()); // 한번 더 배열로 예쁘게 가공하는 것 뿐이다. 그리고 뒤에 trim()을 붙여주면 빈공간이 없어져서 이쁘게 다듬어진다
+            }
             
-//         } else {
-//             check[L]=1;
-//             dfsR(L+1);
-//             check[L]=0;
-//             dfsR(L+1);
-//         };
-//     }
-//     dfsR(1);
-//     return answer;
+        } else {
+            check[L]=1;
+            dfsR(L+1);
+            check[L]=0;
+            dfsR(L+1);
+        };
+    }
+    dfsR(1);
+    return answer;
 
-// }
-// console.log(solution(3)); 
-
-
+}
+console.log(solution(3)); 
 
 
 
 
 
 
-// // 합이 같은 부분집합 구하기 (아마존 인터뷰)
-// // 예. {1, 3, 5, 6, 7, 10} => {1, 3, 5, 7} = {6, 10}
-// // 이 문제도 : 1) 시간제한 무게제한이 없고 (재귀 함수 종료조건이 없으니까 내가 flag로 만들어줄 수도 있다!), 2) 최대값 최소값 구하는 조건이 걸린것도 아니고 (문제가 진정 원하는 것), 3) 체크 걸어주지 않아도 되고, 4)그치만 2)번 대신에 조건으로 합이 서로 같은 경우 YES를 출력하랬으므로, 재귀를 돌면서 숫자의 sum은 누적해줘야한다
-// function solution (arr) {
-//     let answer='NO';
-//     let total = arr.reduce((a,b) => a+b, 0);
-//     function dfsR(L, sum) {
-//         if (L===arr.length) {
-//             if (total-sum === sum) {
-//                 answer ='YES';
-//             }
-//         } else {
-//             dfsR(L+1,sum+arr[L]);
-//             dfsR(L+1, sum);
-//         }
-//     }
-//     dfsR(0,0);
-//     return answer;
-// }
-// let arr =[1, 3, 5, 6, 7, 10];
-// console.log(solution(arr));
+
+
+// 합이 같은 부분집합 구하기 (아마존 인터뷰)
+// 예. {1, 3, 5, 6, 7, 10} => {1, 3, 5, 7} = {6, 10}
+// 이 문제도 : 1) 시간제한 무게제한이 없고 (재귀 함수 종료조건이 없으니까 내가 flag로 만들어줄 수도 있다!), 2) 최대값 최소값 구하는 조건이 걸린것도 아니고 (문제가 진정 원하는 것), 3) 체크 걸어주지 않아도 되고, 4)그치만 2)번 대신에 조건으로 합이 서로 같은 경우 YES를 출력하랬으므로, 재귀를 돌면서 숫자의 sum은 누적해줘야한다
+function solution (arr) {
+    let answer='NO';
+    let total = arr.reduce((a,b) => a+b, 0);
+    function dfsR(L, sum) {
+        if (L===arr.length) {
+            if (total-sum === sum) {
+                answer ='YES';
+            }
+        } else {
+            dfsR(L+1,sum+arr[L]);
+            dfsR(L+1, sum);
+        }
+    }
+    dfsR(0,0);
+    return answer;
+}
+let arr =[1, 3, 5, 6, 7, 10];
+console.log(solution(arr));
 
 
 
@@ -224,4 +224,62 @@ console.log(solution(2, arr));
 
 
 
+
+
+
+
+
+// 조합 구하기 : 1부터 N까지 번호가 적힌 구슬이 있습니다. 이 중 M개를 뽑는 방법의 수를 출력하는 프로그램을 작성하세요.
+// 문제 이해를 잘해야된다. [3, 6, 9]가 있으면 : 
+// 중복 순열 :   [ [ 3, 3 ], [ 3, 6 ], [ 3, 9 ], [ 6, 3 ], [ 6, 6 ], [ 6, 9 ], [ 9, 3 ], [ 9, 6 ], [ 9, 9 ] ]
+// 순열     :   [ [ 3, 6 ], [ 3, 9 ], [ 6, 3 ], [ 6, 9 ], [ 9, 3 ], [ 9, 6 ] ]
+// 이 문제는 :   [ [3,6], [3,9], [6,9] ]일꺼 같지? 아니야 [ [ 1, 2 ], [ 1, 3 ], [ 2, 3 ] ]이거야... 헐 . 왜냐하면 line 245가 핵심. i자체가 원소이다. index번호가 아니라. 결정적으로 line 246에서 tmp[L]에다가 원소 i를 바로 넣어버리니까 당연히 i에는 1,2,3,4 네가지 밖에 못들어가겠지. 그러므로 1~4사이의 조합들만 출력값으로 나오는거다! 유레카!!
+
+function solution (N, m) {
+    let answer = [];
+    let tmp = Array.from({length:m}, ()=>0);
+    function dfsR(L, s) {
+        if (L===m) {
+            answer.push(tmp.slice());
+        } else {
+            for (let i=s; i<N+1; i++) { // i자체가 원소다. index번호가 아니라
+                tmp[L]=i; 
+                dfsR(L+1, 1+i); 
+            }
+        }
+    }
+    dfsR(0,1); // s는 for문의 start number. 1부터 시작. 위에서 말했다시피 i자체가 index번호가 아니라 원소다. 원소이므로 당연히 자연수 1부터 시작하지!
+    return answer;
+}
+console.log(solution(4, 2)); // [ [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 2, 3 ], [ 2, 4 ], [ 3, 4 ] ]
+
+
+
+
+
+
+
+
+
+
+
+// 수들의 조합 : 예) 숫자 5개가 있고, 그 중 3개를 뽑기
+function solution(N, K , arr, m) {
+    let answer = 0;
+    function dfsR(L, s, sum) { // L= Level, s = available한 가지들의 starting number(for문을 돌 때 0부터 셀지 1부터 셀지 s에다가 지정하란 소리. dfsR(0,0,0)이니까 우리는 0부터 셀꺼다) , sum = 3개를 뽑는 그 원소들의 합
+        if (L===K) { // k번 뽑아야 깊이 들어가는 탐색을 멈춘다
+            if (sum % m === 0) { // sum이 6의 배수인지 보는거다
+                answer++;
+            }
+        } else {
+            for (let i=s; i<N; i++) { // i는 index넘버다 0번부터 시작. 원소가 아니다. dfsR(0,0,0).
+                dfsR(L+1, i+1, sum+arr[i]); // i뒷편부터 시작된다고 했어(다음 Level로 뻗으면 i 뒷숫자부터 available하다. 0,1,2,3,4가 있으면 L=1에서 0을 선택했다고 해봐, 그럼 L+1 에서는 0은 제외하고 1,2,3,4만 available한거다 )
+            }                                // sum에는 arr[i]를 누적. 뽑은 숫자를 sum에 누적해주는거야
+        }
+    }
+    dfsR(0, 0, 0);
+    return answer;
+}
+let arr = [2, 4, 5, 8, 12]
+console.log(solution(5, 3, arr, 6)); // 숫자 5개 중, 3개 뽑기, arr, 6의 배수
 
