@@ -32,7 +32,6 @@ console.log(solution(5, 14));  // 3. 3번만에 간다는 뜻
 
 
 
-
 // dis배열 사용하지 않고 내가 일반적으로 아는 넓이 우선 탐색을 이용해서 풀기
 function solution(s, e){  
     let answer=0;
