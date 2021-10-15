@@ -4,7 +4,7 @@ function solution (board){
     let answer = 0;
     let dx = [-1, 0, 1, 0];
     let dy = [0, 1, 0, -1];
-    function dfsR(x,y) {
+    function dfsR(x,y) { // 격자판이니까 좌표 x,y로
         if (x===6 && y===6) { // (6,6)이면 도착이므로 count++해준다
             answer++
         } else {

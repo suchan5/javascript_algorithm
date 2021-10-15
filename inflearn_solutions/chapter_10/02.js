@@ -10,7 +10,7 @@ function solution(n) {
     for (let i=3; i<=n+1; i++) { // 이거떄문이었다. i<n+1 이렇게해서 그런거였어. Either i<=n+1 아니면 i<n+2 이렇게 했어야돼
         dy[i] = dy[i-1] + dy[i-2];
     }
-    answer = dy[n+1]; // 얼레?? 이렇게 하니까 답이 안찍힘.. undefined라고... 왜ㅠㅠ 
+    answer = dy[n+1]; // 얼레?? 이렇게 하니까 답이 안찍힘.. undefined라고... 왜ㅠㅠ 아 line10떄문이었다. 이유도 적어둠
     return answer;
      
 }
