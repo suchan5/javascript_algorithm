@@ -10,8 +10,6 @@ function solution(arr) {
         }
     } 
     console.log(arr);
-    
-    
 }
 let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
 solution(arr);
@@ -21,20 +19,27 @@ solution(arr);
 
 
 
-// 재귀 함수 템플릿
+// 재귀 함수 템플릿 
 function solution () {
     let answer;
     function dfsR() {
-        if () {
+        if () { // 종료 조건이 있으면 여기서 종료. 재귀함수로 가지도 않는다
+            return
+        };
+        if (L===arr.length) {
 
         } else {
-
+            
         }
     }
     dfsR();
     return answer;
 }
+let arr = [];
 console.log(solution());
+
+
+
 
 
 
@@ -47,13 +52,38 @@ function solution (n) {
         if (v===n+1) {
             return;
         } else {
-            console.log(v);
+            console.log(v); // 여기다 넣으면 1 2 3 
             dfsR(v+1);
+            // console.log(v); 여기다 넣으면 문제가 원하는 출력값데로 3 2 1 
         };
     }
     dfsR(1);
 }
 console.log(solution(3));
+
+
+
+// 위의 코드 리팩토링 : answer라는 빈문자열에도 담을 수 있다
+function solution (n) {
+    let answer ='';
+    function dfsR(v){
+        if (v===n+1) {
+            return;
+        } else {
+            answer += v+' '; // 여기다 넣으면 1 2 3 
+            dfsR(v+1);
+            // answer += v+' '; 여기다 넣으면 3 2 1 
+        };
+    }
+    dfsR(1);
+    return answer;
+}
+console.log(solution(3));
+
+
+
+
+
 
 
 
@@ -66,8 +96,9 @@ function solution (n) {
         if (v===0) {
             return;
         } else {
+            // answer += v%2; 여기다가 하면 1 1 0 1
             dfsR(parseInt(v/2));
-            answer += v%2;         
+            answer += v%2;         // 여기다가 하면 1 0 1 1 . answer 빈배열 만들어서 담기 싫으면 이 라인에 바로 console.log(v%2);찍어도 된다
         };
     }
     dfsR(11);
@@ -76,66 +107,6 @@ function solution (n) {
 console.log(solution(11));
 
 
-
-
-
-
-
-
-// 바둑이를 태우냐 마느냐 
-// 1) 무게 제한 (재귀함수 종료 조건), 2) 최대 무게 구하기 (문제가 진정 원하는 것) => 둘 다 무게이므로 재귀로 배열을 탐색해 들어갈 때 무게sum을 누적해준다)
-function solution (C, arr) {
-    let answer = Number.MIN_SAFE_INTEGER;
-    function dfsR(L, sum) {
-        if (C < sum) {
-            return;
-        };
-        if (L===arr.length) {
-            answer = Math.max(answer, sum);
-        } else {
-            dfsR(L+1, sum+arr[L]);
-            dfsR(L+1, sum);
-        };
-    }
-
-    dfsR(0,0);
-    return answer;
-}
-
-let arr = [81, 58, 42, 33, 61];
-console.log(solution(259, arr));
-
-
-
-
-
-
-
-
-
-
-// 문제를 푸느냐 마느냐
-// 1) 시간 제한이 있고 (재귀함수 종료 조건), 2)최대 점수 구하기 (문제가 진정 원하는 것) => 시간이랑 점수 두가지이므로 재귀로 배열을 탐색할 들어갈 때, 시간sum과 점수sum을 누적해준다)
-function solution (m, scoreArr, timeArr) {
-    let answer = Number.MIN_SAFE_INTEGER;
-    function dfsR (L, scoreSum, timeSum) {
-        if (m < timeSum) {
-            return;
-        };
-        if (L===scoreArr.length) { // it can be either timeArr.lengh or scoreArr.length, since the length of the two arrays are same.
-            answer = Math.max(answer, scoreSum);
-        } else {
-            dfsR(L+1, scoreSum+scoreArr[L], timeSum+timeArr[L]);
-            dfsR(L+1, scoreSum, timeSum);
-        };
-
-    }
-    dfsR(0,0,0);
-    return answer;
-}
-let timeArr = [10, 25, 15, 6, 7];
-let scoreArr =[5, 12, 8, 3, 4];
-console.log(solution (20, timeArr, scoreArr));
 
 
 
@@ -304,7 +275,7 @@ function solution (M, arr) { // M: 거슬러 줄 금액
             return;
         };
         if (sum===M) {  // sum이 m금액을 만나면 탐색을 종료. 왼쪽 아래로 쭉 뻗어나가다가 종료
-            answer = Math.min(answer, L); // 여기서 L이 나타내는게 뭐지? sum이 거슬러줘야 할 금액인 m에 도달했을 때 , answer에 담긴 Max_SAFE_INTEGER랑 L(가지: 여기서는 1불, 2불, 5불) 들이랑 비교해서 가장 작은값은 반환?
+            answer = Math.min(answer, L); // 여기서 L이 나타내는게 뭐지? sum이 거슬러줘야 할 금액인 m에 도달했을 때 , answer에 담긴 Max_SAFE_INTEGER랑 L(가지: 여기서는 1불, 2불, 5불) 들이랑 비교해서 가장 작은값은 반환
             
         } else {
             for (let i=0; i<arr.length; i++) {
@@ -384,7 +355,7 @@ function solution (N, m) {
             }
         }
     }
-    dfsR(0,1); // s는 for문의 start number. 1부터 시작. 위에서 말했다시피 i자체가 index번호가 아니라 원소다. 원소이므로 당연히 자연수 1부터 시작하지! 아무튼 dfsR(0,0)이라고 실수로 했더니 답이 이래나왔다 [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 3 ] ]. 저걸 dfsR(0,1)로 설정하는게 큰 의미가 있네.. 근데 잘 이해는 안된다 s를 왜 저기다 넣는지
+    dfsR(0,1); // 1부터 시작. s는 for문의 start number. 위에서 말했다시피 i자체가 index번호가 아니라 원소다. 원소이므로 당연히 자연수 1부터 시작하지! 아무튼 dfsR(0,0)이라고 실수로 했더니 답이 이래나왔다 [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 3 ] ]. 저걸 dfsR(0,1)로 설정하는게 큰 의미가 있네.. 근데 잘 이해는 안된다 s를 왜 저기다 넣는지
     return answer;
 }
 console.log(solution(4, 2)); // [ [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 2, 3 ], [ 2, 4 ], [ 3, 4 ] ]
@@ -399,11 +370,9 @@ console.log(solution(4, 2)); // [ [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 2, 3 ], [ 2, 4
 
 
 
-// 수들의 조합 : 예) 숫자 5개가 있고, 그 중 3개를 뽑기 (5 combination 3인가?)
-// N개의 정수가 주어지면 그 숫자들 중 K개를 뽑는 조합의 합이 임의의 정수 M의 배수인 개수 는 몇 개가 있는지 출력하는 프로그램을 작성하세요.
+// 수들의 조합 : N개의 정수가 주어지면 그 숫자들 중 K개를 뽑는 조합의 합이 임의의 정수 M의 배수인 개수 는 몇 개가 있는지 출력하는 프로그램을 작성하세요.
 // 예를 들면 5개의 숫자 2 4 5 8 12가 주어지고, 3개를 뽑은 조합의 합이 6의 배수인 조합을 찾으면 4+8+12 2+4+12로 2가지가 있습니다.
-
-function solution(N, K , arr, m) {
+function solution(N, K , arr, m) { // 숫자 5개 중, 3개 뽑기, arr, 6의 배수
     let answer = 0;
     function dfsR(L, s, sum) { // s는 왜 필요하지...? 아무튼 조합(몇가지인지)을 구하는 문제는 s가 필요. L= Level, s = available한 가지들의 starting number(for문을 돌 때 0부터 셀지 1부터 셀지 s에다가 지정하란 소리. dfsR(0,0,0)이니까 우리는 0부터 셀꺼다) , sum = 3개를 뽑는 그 원소들의 합 (합을 구해야 나중에 6으로 나눠서 6의 배수인지 확인할 수 있다)
         if (L===K) { // k번 뽑아야 깊이 들어가는 탐색을 멈춘다
@@ -416,7 +385,7 @@ function solution(N, K , arr, m) {
             }                                // sum에는 arr[i]를 누적. 뽑은 숫자를 sum에 누적해주는거야
         }
     }
-    dfsR(0, 0, 0);
+    dfsR(0, 0, 0); // 0부터 시작
     return answer;
 }
 let arr = [2, 4, 5, 8, 12]

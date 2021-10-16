@@ -1,8 +1,8 @@
 // 미로탐색 (DFS)
 
-function solution (board){
+function solution (board){ //  격자판이라서 board라는 매개변수명을 지어줬다 ㅋㅋ
     let answer = 0;
-    let dx = [-1, 0, 1, 0];
+    let dx = [-1, 0, 1, 0]; // 상하좌우 4방향
     let dy = [0, 1, 0, -1];
     function dfsR(x,y) { // 격자판이니까 좌표 x,y로
         if (x===6 && y===6) { // (6,6)이면 도착이므로 count++해준다

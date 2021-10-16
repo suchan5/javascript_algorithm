@@ -5,6 +5,7 @@ const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 const input = fs.readFileSync(filePath).toString();
 console.log(input);
 
+
 function solution(str, spelling) {
     let count = 0;
     for (let s of str) {

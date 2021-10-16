@@ -19,8 +19,8 @@ function solution (n, arr) {
         } else {
             for (let i=0; i<graph[v].length; i++) { // 그래프의 행의 정점의 길이만큼 for문을 돈다. dfsR(1)로 시작했으니까 처음에는 1행의 길이만큼 돌고, 그 다음에 2행의 길이만큼 돌고 continue
                 // if (graph[v][i] === 1 && check[i] === 0) {  // 필요없다. 이런걸 확인할 필요가 없다. 당연히 그 값들을 가는거다
-                if (check[graph[v][i]] === 0) { // graph[v][i] 는 v행의 i인덱스 자리. 
-                    check[graph[v][i]] = 1; // 체크가 안되어있다면 정점'graph[v][i]'에 체크걸고
+                if (check[graph[v][i]] === 0) { // graph[v][i] 는 v행의 i인덱스 자리. 체크가 안되어있다면 다음줄,
+                    check[graph[v][i]] = 1; // 체크가 안되어있다면 정점'graph[v][i]'에 체크걸고 (갈 수 있으니까 체크를 걸어야지)
                     dfsR(graph[v][i]); // 그 정점 호출
                     check[graph[v][i]] = 0; // 그리고 체크 풀어주고
                 }

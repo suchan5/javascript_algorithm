@@ -8,6 +8,29 @@ const input = fs.readFileSync(filePath).toString().split(' ');  // 배열 안의
 console.log(input);
 
 
+// 이렇게 간단하게 할 수 있다니
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+const input = fs.readFileSync(filePath).toString().split(' ').map(item => +item); // 여기서는 배열 안의 데이터들을 숫자로 평소처럼 바꿔주자. 문자열을 slice로 하는 것보다, 숫자로 했을 때 더 간단하게 하는 방법이 있다
+console.log(input);
+
+function solution2(date, arr){
+    let count = 0;
+    for(let x of arr){ 
+        if(x % 10 === date) { // 바로 이렇게 10으로 나누어 버리면, 나머지가 곧 일의 자리 숫자이다. 오~~!!! 10진수의 수들은 10으로 나누었을 때, 어떤 수를 나누던 나머지는 곧 일의 자리 숫자이다
+            count++; 
+        }
+    }
+    return count;
+}
+console.log(solution2(0, input));
+
+
+
+
+
+
+// 내 버전 코드
 function solution(date, arr) {
     let car; // 차의 번호판의 일의 자리 숫자를 담을 변수를 선언
     let count = 0;
@@ -28,21 +51,7 @@ console.log(solution(0, input));
 
 
 
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-const input = fs.readFileSync(filePath).toString().split(' ').map(item => +item); // 여기서는 배열 안의 데이터들을 숫자로 평소처럼 바꿔주자. 문자열을 slice로 하는 것보다, 숫자로 했을 때 더 간단하게 하는 방법이 있다
-console.log(input);
 
-function solution2(date, arr){
-    let count = 0;
-    for(let x of arr){ 
-        if(x % 10 === date) { // 바로 이렇게 10으로 나누어 버리면, 나머지가 곧 일의 자리 숫자이다. 오~~!!! 10진수의 수들은 10으로 나누었을 때, 어떤 수를 나누던 나머지는 곧 일의 자리 숫자이다
-            count++; 
-        }
-    }
-    return count;
-}
-console.log(solution2(0, input));
 
 
 

@@ -13,7 +13,7 @@ function solution(N, K , arr, m) {
             }                                // sum에는 arr[i]를 누적. 뽑은 숫자를 sum에 누적해주는거야
         }
     }
-    dfsR(0, 0, 0);
+    dfsR(0, 0, 0); // 0부터 시작한다 이 문제는
     return answer;
 }
 let arr = [2, 4, 5, 8, 12]

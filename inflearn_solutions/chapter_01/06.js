@@ -4,6 +4,27 @@ const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 const input = fs.readFileSync(filePath).toString().split(' ').map(item => +item);
 
+
+
+function solution2 (arr) {
+    let sum = 0;
+    let min = 10000000000;
+    for (let n of arr) {  // arr를 for문으로 돌면서
+        if (n%2 !== 0) { // 2로 나눴을 때 딱 나누어 떨어지지 않으면 홀수
+            sum += n // 홀수를 sum이란 변수에 누적하면 그게 홀수의 합
+            if (min > n) { // min에 담아둔 값이랑 홀수n이랑 비교해서 더 작은 값이 min에 새로 담긴다
+                min = n; 
+            }
+        }
+    }
+    console.log(sum);
+    console.log(min);
+}
+solution2(input);
+
+
+
+// 처음에는 이렇게 했었다. 위의 코드가 더 좋은 코드임 물론
 function solution1(arr) {
     let sum = 0;
     let min = 1000000000;
@@ -23,28 +44,6 @@ function solution1(arr) {
     console.log(min);
 };
 solution1(input);
-
-
-
-
-
-// 조금 더 진화된 코드로 바꿔보자
-function solution2 (arr) {
-    let sum = 0;
-    let min = 10000000000;
-    for (let n of arr) {  // arr를 for문으로 돌면서
-        if (n%2 !== 0) { // 2로 나눴을 때 딱 나누어 떨어지지 않으면 홀수
-            sum += n // 홀수를 sum이란 변수에 누적하면 그게 홀수의 합
-            if (min > n) { // min에 담아둔 값이랑 홀수n이랑 비교해서 더 작은 값이 min에 새로 담긴다
-                min = n; 
-            }
-        }
-    }
-    console.log(sum);
-    console.log(min);
-}
-solution2(input);
-
 
 
 

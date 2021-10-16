@@ -2,7 +2,7 @@
 // 이거 재귀함수 사용해서 풀 수 있나..? ㅇㅇ 할 수있는듯. 바꿔봐야겠다..? ㅎ 04.(js파일 참고)
 
 
-function solution (board){
+function solution (board){ // 격자판이라서 board라는 매개변수 사용 ㅋㅋ
     let answer = 0;
     let n = board.length;
     let dx = [-1, -1, 0, 1, 1, 1, 0, -1];

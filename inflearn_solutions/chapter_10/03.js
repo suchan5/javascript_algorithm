@@ -3,16 +3,16 @@
 
 function solution (arr) {
     let answer = 0;
-    let dy = Array.from({length:arr.length}, ()=>0);
-    dy[0] = 1; // dy[0]의 자리에는 무조건 1개겠지. 이건 초기화해준다
-    for (let i=1; i<arr.length; i++){ 
-        let max = 0;
+    let dy = Array.from({length:arr.length}, ()=>0); //  dy배열 만들어준다
+    dy[0] = 1; // LIS를 찾을 때는 dy[0]의 자리에는 무조건 1개다. 1로 초기화해준다 
+    for (let i=1; i<arr.length; i++){ // arr배열을 돌면서
+        let max = 0; // 최대값을 구할꺼니까 가장 작은수를 넣어준다
         for (let j=i-1; j>=0; j--) { // 0번까지 역순으로 돌면서 dy배열을 훑으면서
             if (arr[j]<arr[i] && dy[j]>max) {
                 max = dy[j];
             }
         }
-        dy[i] = max + 1;
+        dy[i] = max + 1; // 1을 꼭 더해줘야함 (이해안되면 공책에 그림 봐)
         answer = Math.max(answer, dy[i]);
     }
     return answer;
