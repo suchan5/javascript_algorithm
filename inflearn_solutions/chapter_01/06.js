@@ -24,7 +24,34 @@ solution2(input);
 
 
 
-// 처음에는 이렇게 했었다. 위의 코드가 더 좋은 코드임 물론
+// Math.min()을 이용해서 최소값을 찾을 수도 있다
+function solution(arr) {
+    let answer = [];
+    let sum = 0;
+    let min = Number.MAX_SAFE_INTEGER;
+    for (let i=0; i<arr.length; i++) {
+        if (arr[i]%2 !== 0) {
+            sum += arr[i];
+            min = Math.min(min, arr[i]);
+        }
+    }
+    answer.push(sum);
+    answer.push(min);
+    return answer;
+    
+    
+}
+let arr = [12, 77, 38, 41, 53, 92, 85];
+console.log(solution(arr));
+
+
+
+
+
+
+
+
+// 맨 처음에는 이렇게 했었다. 위의 코드들이 더 좋은 코드임 물론
 function solution1(arr) {
     let sum = 0;
     let min = 1000000000;

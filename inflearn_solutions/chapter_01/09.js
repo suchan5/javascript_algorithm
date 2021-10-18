@@ -17,6 +17,14 @@ console.log(solution(input));
 // i : 대/소문자 구분 안함
 // m : 여러 줄 검색
 
+// 예) let str = 'Mr Blue has a blue house and a blue car';
+//     str.replace(/blue|house|car/gi, function (x) {  
+//         return x.toUpperCase();     // Mr BLUE has a BLUE HOUSE and a BLUE CAR.
+//     });
+
+
+
+
 
 
 
