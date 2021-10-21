@@ -66,7 +66,12 @@
 
 // let n=5;
 // for (let i=n; i>0; i--) {
-//     console.log('*'.repeat(i*2-1));
+//     console.log('*'.repeat(i*2-1));  // '*'.repeat(i+i-1) 이렇게도 할 수 있다
+// }
+
+// let n=5;
+// for (let i=9; i>0; i-=2) {
+//     console.log('*'.repeat(i));
 // }
 
 
@@ -84,6 +89,10 @@
 //     console.log('*'.repeat(i*2+1));
 // }
 
+// let n=5;
+// for(let i=1; i<10; i+=2)  {   
+//     console.log('*'.repeat(i));
+// }
 
 
 
@@ -126,7 +135,7 @@
 
 // let n=5;
 // for (let i=0; i<n; i++) {
-//     console.log(' '.repeat(4-i) + '*'.repeat(i+1));
+//     console.log(' '.repeat(4-i) + '*'.repeat(i+1));  // (' '.repeat(Math.abs(i-4)) 이렇게도 된다
 // }
 
 
