@@ -25,3 +25,24 @@ function solution(A, B, C) {
     return answer;
 };
 console.log(solution(input[0], input[1], input[2]));
+
+
+
+
+
+
+
+// 푸드 판다 코테 끝나고 내가 새로 짜 본 코드. 새삼 많이 발전했구나! 강사님 코드보다 훨씬 좋다! 그치만 시간은 더 많이 걸리려나?
+let input = '13 33 17'.split(' ').map(item => +item);
+
+function solution () {
+    let answer='NO';
+    let total = input.reduce((a, b) => a+b);
+    let longest = Math.max(...input);
+    if ((total - longest) > longest) {
+        answer = 'YES';
+    }
+    return answer;
+}
+
+console.log(solution());

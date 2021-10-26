@@ -1,3 +1,28 @@
+// boj Q2884 : 알람시계
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+const input = fs.readFileSync(filePath).toString().split(' ').map(item => +item);
+console.log(input);
+
+function solution(H, M) {
+    M -= 45;
+    if (M<0) { // 45분을 뺐을 때 (-)값이면
+        H -= 1;
+        M += 60; 
+    };
+    if (H<0) {
+        H = 23;
+    };
+    console.log(H, M);
+};
+solution(input[0], input[1]);
+
+
+
+
+
+
+// 인프런
 // 백설공주와 일곱난쟁이
 function solution(arr) {
     let sum = arr.reduce((a,b) => a+b, 0)
