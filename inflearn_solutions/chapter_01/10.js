@@ -10,7 +10,7 @@ function solution(str, spelling) {
     let count = 0;
     for (let s of str) {
         if (s === spelling) {
-            count += 1;
+            count ++;
         }
     };
     return count;

@@ -6,7 +6,7 @@ const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 const input = fs.readFileSync(filePath).toString().split('\n'); // split()을 이용해서 배열(array)로 만들어줬다
 console.log(input);  // [ 'teacher', 'time', 'student', 'beautiful', 'good' ]
  
-function solution(num, arr) {
+function solution(arr) {
     let answer;
     let max = Number.MIN_SAFE_INTEGER; // 최댓값을 구해야 할 때는 임의의 가장 작은 수를 이용한다
     for (let a of arr) {
@@ -17,7 +17,7 @@ function solution(num, arr) {
     }
     return answer;
 };
-console.log(solution(5, input));
+console.log(solution(input));
 
 
 
