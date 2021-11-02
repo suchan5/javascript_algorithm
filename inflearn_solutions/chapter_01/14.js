@@ -22,3 +22,19 @@ console.log(solution(input));
 
 
 
+// 이렇게도 가능
+let input ='teacher time student beautiful good'.split(' ');
+console.log(input);
+
+function solution () {
+    let answer;
+    let max = 0;
+    for (let i=0; i<input.length; i++) {
+        if (max < input[i].length) {
+            max = input[i].length;
+            answer = input[i];
+        }
+    }
+    return answer;
+}
+console.log(solution());

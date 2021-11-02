@@ -4,25 +4,25 @@
 // substring()을 사용 : substring() is to extract characters from a string
 
 
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-const input = fs.readFileSync(filePath).toString();
-console.log(input); //study
+// const fs = require('fs');
+// const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+// const input = fs.readFileSync(filePath).toString();
+// console.log(input); //study
 
-function solution(str) {
-    let answer;
-    let mid = Math.floor(str.length/2); // 몫이 2
-    if (str.lengh%2 !== 0) { // 홀수일 경우. ('===1'로 했더니 'study'로 테스트 해봤을 때 정상 작동 안하더라. 그래서 '!==0'으로 바꿔줬더니 더 정확함)
+// function solution(str) {
+//     let answer;
+//     let mid = Math.floor(str.length/2); // 몫이 2
+//     if (str.lengh%2 !== 0) { // 홀수일 경우. ('===1'로 했더니 'study'로 테스트 해봤을 때 정상 작동 안하더라. 그래서 '!==0'으로 바꿔줬더니 더 정확함)
 
-        // substring()을 사용한다. answer = str[quotient];로 했더니 안됨ㅠㅠ str[2]를 표현하고 싶었는데, 인덱스 접근할 때는 '[]'안에 오로지 찐숫자만 들어가야한다. 저렇게 변수 안에 담긴 숫자는 안되더라ㅜ 대신에 string관련된 함수를 쓰시오
-        answer = str.substring(mid, mid+1); // str.substring(2,3);이거랑 같다.
+//         // substring()을 사용한다. answer = str[quotient];로 했더니 안됨ㅠㅠ str[2]를 표현하고 싶었는데, 인덱스 접근할 때는 '[]'안에 오로지 찐숫자만 들어가야한다. 저렇게 변수 안에 담긴 숫자는 안되더라ㅜ 대신에 string관련된 함수를 쓰시오
+//         answer = str.substring(mid, mid+1); // str.substring(2,3);이거랑 같다.
         
-    } else { // 짝수일 경우
-        answer = str.substring(mid-1, mid+1); // str.substring(3,5);이거랑 같다.
-    }
-    return answer;
-};
-console.log(solution(input));
+//     } else { // 짝수일 경우
+//         answer = str.substring(mid-1, mid+1); // str.substring(3,5);이거랑 같다.
+//     }
+//     return answer;
+// };
+// console.log(solution(input));
 
 
 
@@ -30,17 +30,15 @@ console.log(solution(input));
 
 
 // 이번에는 렇게 slice를 써서 해봤다
-let input = 'good';
+let input = 'study';
 
 function solution (str) {
     let mid;
     let q = parseInt(str.length/2); 
-    for (let i=0; i<str.length; i++) {
-        if (str.length%2 === 0) {
-            mid = str.slice(q-1, q+1);
-        } else {
-            mid = str.slice(q, q+1);
-        }
+    if (str.length%2 === 0) {
+        mid = str.slice(q-1, q+1);
+    } else {
+        mid = str.slice(q, q+1);
     }
     return mid;
     

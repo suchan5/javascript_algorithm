@@ -30,7 +30,7 @@ console.log(solution2(0, input));
 
 
 
-// 내 버전 코드
+// 내 버전 코드 (그냥 이렇게  삽질할  수도  있구나  정도만ㅎㅎ)
 function solution(date, arr) {
     let car; // 차의 번호판의 일의 자리 숫자를 담을 변수를 선언
     let count = 0;
