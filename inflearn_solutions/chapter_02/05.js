@@ -11,23 +11,23 @@
 
 
 // 이 코드는 이해가 잘 안된다. 나는 아래 방법으로 풀어야지. 
-// function solution(n, arr) {
-//   let answer = [];
+function solution(n, arr) {
+  let answer = [];
  
-//   for (let i = 0; i < n; i++) {
-//     let rank = 1; // rank변수를 이 줄에다가 넣어야지만 답이 나오는데 그 매케니즘이 이해가 잘안됨 ㅠㅠ
-//     for (let j = 0; j < n; j++) {
-//       if (arr[i] < arr[j]) {
-//         rank++;
-//       }
-//     }
-//     answer.push(rank);// push도 이 줄에서 해야지만 답이 나오는데 그 매케니즘이 이해가 잘안된다..
-//   }
-//   return answer;
-// }
-// let n = 5;
-// let arr = [87, 89, 92, 100, 76];
-// console.log(solution(n, arr));
+  for (let i = 0; i < n; i++) {
+    let rank = 1; // rank변수를 이 줄에다가 넣어야지만 답이 나오는데 그 매케니즘이 이해가 잘안됨 ㅠㅠ
+    for (let j = 0; j < n; j++) {
+      if (arr[i] < arr[j]) {
+        rank++;
+      }
+    }
+    answer.push(rank);// push도 이 줄에서 해야지만 답이 나오는데 그 매케니즘이 이해가 잘안된다.. ㅇㅏ 알겠다 rank변수가 있는 scope에서 처리를 해주는거다
+  }
+  return answer;
+}
+let n = 5;
+let arr = [87, 89, 92, 100, 76];
+console.log(solution(n, arr));
 
 
 
