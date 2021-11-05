@@ -9,7 +9,7 @@ function solution (str) {
             answer += s;
         }
     }
-    answer = parseInt(answer); // 0208에서 앞의 0은 떼버리려면
+    answer = parseInt(answer);
     return answer;
 }
 console.log(solution(input));
