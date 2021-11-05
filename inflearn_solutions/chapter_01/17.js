@@ -47,3 +47,10 @@ function solution(arr) {
 console.log(solution(input));
 
 
+
+
+
+// 보너스 문제 
+let array = ['🐨', '🐹', '🐱', '🐿', '🐨', '🐰', '🐣', '🐯', '🐹', '🐰'];
+array = array.filter((v, i) => array.indexOf(v)===i );
+console.log(array);
