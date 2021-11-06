@@ -19,6 +19,8 @@
 
 
 
+
+// 내장메써드를 쓰지 않고 반복만으로만 구현하기
 let input = [[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]];
 
 function solution (test) {
@@ -56,3 +58,59 @@ function solution (test) {
 }
 console.log(solution(input));
 
+
+
+
+
+
+
+
+
+
+// 내장함수 indexOf를 사용 
+// 정답 출처 : https://gobae.tistory.com/11
+function solution(test){
+    let answer = [];
+    const m = test.length;
+    const n = test[0].length;
+  
+    for(let i = 1; i<=n; i++){
+      for(let j = 1; j<=n; j++){
+        if(i===j) continue;
+        let cnt = 0;
+        for(let k = 0; k<m; k++){
+          const gi = test[k].indexOf(i)
+          const gj = test[k].indexOf(j)
+          if(gi < gj) cnt++;
+        }
+      if(cnt === m) answer.push([i, j]);
+      }
+    }
+    return answer;
+  }
+  
+  let arr = [[3,4,1,2], [4,3,2,1], [3,1,4,2]];
+  console.log(solution(arr));
+
+// 유의할 점 :
+// indexOf 메서드는 2번째 인자로 fromIndex를 받는데, 이 인자 값을 설정하지 않으면 기본값 0을 가진다.
+// 그렇게 되면 배열의 처음부터 찾고자하는 값을 찾아나가는데, 처음으로 값이 발견되면 그 즉시 인덱스를 반환하고 종료된다.
+// 만약 [1,2,3,1,1,3] 등과 같이 두번째 1을 찾고 싶다면?
+// fromIndex의 값을 부여해서, 찾는 시작점을 설정해주면 된다.
+
+// 만약 indexOf만을 고집해서 모든 1의 인덱스를 사용하고 싶다면 :
+const arr = [1,2,3,1,1,3];
+const indexArr = [];
+let idx = 0;
+
+while(true){
+  idx = arr.indexOf(1, idx);
+  if(idx === -1) break;
+  indexArr.push(idx++);
+}
+
+// 위와 같이 배열의 처음부터 1의 index를 찾는다.
+// 그 값을 idx 변수에 저장한다.
+// 만약 idx가 -1일 때 (indexOf 메서드는 찾고자 하는 값이 존재하지 않을 때 -1을 반환한다) while문을 탈출한다.
+// idx가 -1이 아니라면, indexArr 배열에 idx값을 넣어주고, idx를 1 증가시키면 된다.
+// - 발견한 인덱스 그 다음 인덱스부터 찾아야한다.
