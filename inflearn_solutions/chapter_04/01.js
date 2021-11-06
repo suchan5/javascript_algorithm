@@ -3,7 +3,7 @@
 let input ='128 460 603 40 521 137 123'.split(' ').map(item => +item);
 
 // while문을 써서 쪼개들어가는 방법 (이것도 잘알아둬야한다)
-function solution (str) {
+function solution (str) { // str이 아니라 arr아녀? 아니면 위에 input에서 배열로 미리 바꿀 필요가 없는건가?
     let answer;
     let max = Number.MIN_SAFE_INTEGER;
     for (let s of str) {
