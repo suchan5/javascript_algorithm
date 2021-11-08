@@ -6,7 +6,7 @@
 function solution(m, product){
     let answer = 0;
     let n = product.length; // product의 길이 구하면 학생수가 되겠죠. 학생들이 각자 제출한 정보니까요
-    product.sort((a, b)=>(a[0] + a[1]) - (b[0] + b[1])); // 할인받을 상품을 결정하고 나면 나머지는 예산에 맞춰 작은것부터 최대한 사야하니까 정렬한 것입니다. a[0]번이 상품가격, a[1]번이 배송비. b[0]번이 상품가격, b[1]번이 배송비
+    product.sort((a, b)=>(a[0] + a[1]) - (b[0] + b[1])); // 할인받을 상품을 결정하고 나면 나머지는 예산에 맞춰 작은것부터 최대한 사야하니까 정렬한 것입니다. a[0]번이 상품가격, a[1]번이 배송비. b[0]번이 상품가격, b[1]번이 배송비 . arrow function에서 a-b가 오름차순, b-a가 내림차순
     // console.log(product); 
     for(let i=0; i<n; i++){ // for문으로 돌면서 0번째부터 할인가를 적용해보자
         let money = m - (product[i][0]/2 + product[i][1]); // money는 남은금액
