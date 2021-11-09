@@ -25,7 +25,6 @@ function solution (str, t) {
         } else {
             p++;
             answer[i] = Math.min(answer[i], p); //기존 answer배열에 들어있는 수랑 p랑 비교해서 더 짧은거리를 넣어준다
-            
         }
     }
     return answer;
