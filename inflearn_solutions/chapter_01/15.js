@@ -33,14 +33,14 @@
 let input = 'study';
 
 function solution (str) {
-    let mid;
-    let q = parseInt(str.length/2); 
+    let answer;
+    let mid = parseInt(str.length/2); 
     if (str.length%2 === 0) {
-        mid = str.slice(q-1, q+1);
+        answer = str.slice(mid-1, mid+1);
     } else {
-        mid = str.slice(q, q+1);
+        answer = str.slice(mid, mid+1);
     }
-    return mid;
+    return answer;
     
 }
 console.log(solution(input));
