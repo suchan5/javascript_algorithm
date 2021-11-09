@@ -14,3 +14,14 @@ function solution (str) {
 }
 console.log(solution(input));
 
+
+
+
+
+// Regular Expression사용해서 할 수도
+function solution (str) {
+    let answer = str.replace(/[a-z]/gi, '');
+    answer = parseInt(Number(answer));
+    return answer;
+}
+console.log(solution(input));
