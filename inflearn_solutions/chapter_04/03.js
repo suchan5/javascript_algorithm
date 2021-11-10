@@ -33,9 +33,9 @@ function solution (test) {
             // console.log(i,j); // 16가지 경우의 수가 모두 찍힌다
             let cnt = 0; // cnt는 여기다가 초기화 해줘야하겠지. 매 test들어가기 전에
             for (let k=0; k<m; k++) { // 0번 인덱스부터 test횟수가 m만큼 돈다
-                let pi = 0; //i의 등수를 pi라고 할께
-                let pj = 0; // j의 등수를 pj라고 할께
-                for (let s=0; s<n; s++) { // 학생 수만큼 돈다
+                let pi; //i의 등수를 pi라고 할께
+                let pj; // j의 등수를 pj라고 할께
+                for (let s=0; s<n; s++) { // 등수. (학생 수만큼 돈다)
                     if (test[k][s] === i) { // k번쨰 테스트(예를들면 첫번째 테스트)의 s위치에 i번 학생이 있냐 없냐해서 있다고 하면
                         pi = s; // pi(i의 등수)는 s다
                     }
@@ -67,30 +67,30 @@ console.log(solution(input));
 
 
 
-// 내장함수 indexOf를 사용 
+// 내장함수 indexOf를 사용 (반례가 있는지는 모르겠음)
 // 정답 출처 : https://gobae.tistory.com/11
-function solution(test){
-    let answer = [];
-    const m = test.length;
-    const n = test[0].length;
+// function solution(test){
+//     let answer = [];
+//     const m = test.length;
+//     const n = test[0].length;
   
-    for(let i = 1; i<=n; i++){
-      for(let j = 1; j<=n; j++){
-        if(i===j) continue;
-        let cnt = 0;
-        for(let k = 0; k<m; k++){
-          const gi = test[k].indexOf(i)
-          const gj = test[k].indexOf(j)
-          if(gi < gj) cnt++;
-        }
-      if(cnt === m) answer.push([i, j]);
-      }
-    }
-    return answer;
-  }
+//     for(let i = 1; i<=n; i++){
+//       for(let j = 1; j<=n; j++){
+//         if(i===j) continue;
+//         let cnt = 0;
+//         for(let k = 0; k<m; k++){
+//           const gi = test[k].indexOf(i)
+//           const gj = test[k].indexOf(j)
+//           if(gi < gj) cnt++;
+//         }
+//       if(cnt === m) answer.push([i, j]);
+//       }
+//     }
+//     return answer;
+//   }
   
-  let arr = [[3,4,1,2], [4,3,2,1], [3,1,4,2]];
-  console.log(solution(arr));
+//   let arr = [[3,4,1,2], [4,3,2,1], [3,1,4,2]];
+//   console.log(solution(arr));
 
 // 유의할 점 :
 // indexOf 메서드는 2번째 인자로 fromIndex를 받는데, 이 인자 값을 설정하지 않으면 기본값 0을 가진다.
@@ -99,15 +99,15 @@ function solution(test){
 // fromIndex의 값을 부여해서, 찾는 시작점을 설정해주면 된다.
 
 // 만약 indexOf만을 고집해서 모든 1의 인덱스를 사용하고 싶다면 :
-const arr = [1,2,3,1,1,3];
-const indexArr = [];
-let idx = 0;
+// const arr = [1,2,3,1,1,3];
+// const indexArr = [];
+// let idx = 0;
 
-while(true){
-  idx = arr.indexOf(1, idx);
-  if(idx === -1) break;
-  indexArr.push(idx++);
-}
+// while(true){
+//   idx = arr.indexOf(1, idx);
+//   if(idx === -1) break;
+//   indexArr.push(idx++);
+// }
 
 // 위와 같이 배열의 처음부터 1의 index를 찾는다.
 // 그 값을 idx 변수에 저장한다.
