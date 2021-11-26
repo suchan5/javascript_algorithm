@@ -1,3 +1,7 @@
+// 문제출처 : https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/rJc83gTrY#%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94-%EC%97%AC%EB%9F%AC%EB%B6%84-%EC%BD%94%EB%94%A9%EC%95%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EB%88%84%EB%82%98%EC%97%90%EC%9A%94
+// 정답: https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/rkMXvayvK
+
+
 let names = [
     "Steven Paul Jobs",
     "Bill Gates",
@@ -45,6 +49,13 @@ let names = [
 
 
 // map 문제 : 3) 이름의 이니셜만 출력하시오. (예-[“SPU”,“BG”,“MEZ”,“EM”…])
+let initialOnly = names.map(item => {
+  let splitName = item.split(' ');
+  let initial = '';
+  splitName.forEach(item => initial += item[0]);
+  return initial;
+});
+console.log(initialOnly);
 
 
 
