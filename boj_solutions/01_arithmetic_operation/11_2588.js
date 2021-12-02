@@ -10,6 +10,6 @@ function solution(A, B) {
     console.log(A*stringB[2]); 
     console.log(A*stringB[1]); 
     console.log(A*stringB[0]);
-    console.log(A*stringB);
+    console.log(A*B);
 };
 solution(input[0], input[1]);
