@@ -9,7 +9,7 @@ function solution(H, M) {
         H -= 1;
         M += 60; 
     };
-    if (H<0) {
+    if (H<0) { // specific하게 'H === 0'이라고 하면 안되나?
         H = 23;
     };
     console.log(H, M);
