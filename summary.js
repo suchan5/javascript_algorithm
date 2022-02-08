@@ -22,12 +22,17 @@ solution(input[0], input[1]);
 
 
 
-// 인프런
-// 백설공주와 일곱난쟁이
+
+
+
+// 인프런 
+// chapter_01 06번 : 홀수 찾고 그들의 합 구하고 최소값 구하기
+// chapter_01 07번 : 10부제 (어떤 수의 일의 자리를 구할 때, 나누기 10을 해서 나머지가 일의 자리라는걸 이해하면 된다)
+// chapter_01 08번 : 백설공주와 일곱난쟁이
 function solution(arr) {
     let sum = arr.reduce((a,b) => a+b, 0)
-    for (let i=0; i<9; i++){
-        for (let j=i+1; j<10; j++) {
+    for (let i=0; i<arr.length; i++){
+        for (let j=i+1; j<arr.length+1; j++) {
             if ((sum - 100) === (arr[i]+arr[j])) {
                 arr.splice(j, 1);
                 arr.splice(i, 1);
@@ -38,6 +43,19 @@ function solution(arr) {
 }
 let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
 solution(arr);
+
+
+
+// chapter_01 09번 : BANANA (string관련 함수 중 replace())
+// chapter_01 10번 : PROGRAMMING (알파벳 'R'을 기준으로 나눴을 때 몇 개인지 구하기)
+// chapter_01 12번 : 대문자로 통일  (이거는 무슨 함수를 써야할지는 알겠는데 구현을 잘 못했음. 다시 해봐 )
+// chapter_01 14번 : 입력값들 중 가장 긴 문자열 (와우 접근법은 알겠는데 구현을 못함)
+// chapter_01 15번 : 가운데 문자 출력 (와우 어렵당)
+// chapter_01 16번 : 중복문자제거 (와우.. 접근법도 몰라. indexOf()사용한다)  + 중복되는 '특정 문자' 제거
+// chapter_01 17번 : 중복 단어 제거 (와우 이것도 다시. 배열에서 filter를 사용했음)
+
+
+
 
 
 
