@@ -8,3 +8,12 @@ function solution(A, B) {
     return answer;
 };
 console.log(solution(input[0], input[1]));
+
+
+
+//readFile하지 않고 이 방법으로 하면 더 간단하다
+// function solution(A, B) {
+//     return A-B;
+// }
+// const input = [3, 2];
+// console.log(solution(input[0], input[1]));

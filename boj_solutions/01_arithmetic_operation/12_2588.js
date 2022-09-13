@@ -5,9 +5,9 @@ console.log(input);
 
 function solution(A, B) {
     let stringB = String(B);
-    console.log(stringB);
+    console.log(stringB); //  typeof(stringB) 해보면 string
 
-    console.log(A*stringB[2]); 
+    console.log(A*stringB[2]); // // typeof(A*stringB[2]) 해보면 number나옴.. 오..
     console.log(A*stringB[1]); 
     console.log(A*stringB[0]);
     console.log(A*B);
